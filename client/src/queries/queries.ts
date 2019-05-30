@@ -1,22 +1,5 @@
-import { gql } from 'apollo-boost';
+import { loader } from 'graphql.macro';
 
-export const bookQuery = gql`
-    query book($id: String!) {
-        book(id: $id) {
-            id
-            title
-            author
-        }
-    }
-`;
-
-export const booksQuery = gql`
-    query books {
-        books {
-            id
-            title
-            author
-        }
-    }
-`;
+export const bookQuery = loader('./book.graphql');
+export const booksQuery = loader('./books.graphql');
 
