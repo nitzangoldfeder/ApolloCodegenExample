@@ -1,0 +1,43 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/jest": "24.0.13",
+    "@types/node": "12.0.3",
+    "@types/react": "16.8.19",
+    "@types/react-dom": "16.8.4",
+    "apollo-boost": "^0.4.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "typescript": "3.5.1"
+  },
+  "devDependencies": {
+    "apollo": "^2.12.4"
+  },
+  "scripts": {
+    "start": "npm run codegen && react-scripts start",
+    "build": "npm run codegen && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "codegen:download": "apollo schema:download --endpoint=http://localhost:4000/graphql",
+    "codegen:generate": "apollo codegen:generate --queries=./src/queries/**/*.ts --localSchemaFile=schema.json --target=typescript --outputFlat ./src/types/graphql.ts",
+    "codegen": "npm run codegen:download && npm run codegen:generate"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
